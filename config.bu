@@ -1,7 +1,26 @@
 variant: fcos
 version: 1.6.0
 passwd:
+  groups:
+    - name: familie
+      gid: 2000
+    - name: gandor
+      gid: 1000
+    - name: ellen
+      gid: 1001
   users:
     - name: core
       ssh_authorized_keys:
         - ssh-rsa AAAA...
+    - name: gandor
+      uid: 1000
+      password_hash:
+      groups:
+        - gandor
+        - familie
+    - name: ellen
+      uid: 1001
+      password_hash:
+      groups:
+        - ellen
+        - familie
